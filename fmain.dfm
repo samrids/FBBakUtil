@@ -234,7 +234,7 @@ object frmMainBak: TfrmMainBak
           Top = 163
           Width = 267
           Height = 17
-          Caption = 'Prevent database/transaction triggers form firing'
+          Caption = 'Prevent database/transaction triggers from firing'
           TabOrder = 6
         end
         object Cmb_boNonTransportable: TComboBox
