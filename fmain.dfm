@@ -172,7 +172,7 @@ object frmMainBak: TfrmMainBak
         Width = 804
         Height = 237
         Anchors = [akLeft, akTop, akRight]
-        Caption = 'General'
+        Caption = 'Options'
         TabOrder = 0
         object Label1: TLabel
           Left = 27
