@@ -119,8 +119,6 @@ object frmMainBak: TfrmMainBak
     Height = 38
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 664
-    ExplicitWidth = 828
     DesignSize = (
       818
       38)
@@ -133,7 +131,6 @@ object frmMainBak: TfrmMainBak
       Caption = '&Start Backup'
       TabOrder = 0
       OnClick = Button2Click
-      ExplicitLeft = 645
     end
     object Button1: TButton
       Left = 726
@@ -144,7 +141,6 @@ object frmMainBak: TfrmMainBak
       Caption = '&Close'
       TabOrder = 1
       OnClick = Button1Click
-      ExplicitLeft = 736
     end
   end
   object PageControl1: TPageControl
@@ -156,13 +152,8 @@ object frmMainBak: TfrmMainBak
     Align = alClient
     Style = tsFlatButtons
     TabOrder = 2
-    ExplicitTop = 69
-    ExplicitHeight = 569
     object TabSheet1: TTabSheet
       Caption = 'Backup Files.'
-      ExplicitLeft = 7
-      ExplicitTop = 25
-      ExplicitHeight = 538
       DesignSize = (
         810
         557)
@@ -305,7 +296,6 @@ object frmMainBak: TfrmMainBak
           TabOrder = 3
           Visible = False
           OnClick = Btn_SelectOutputFileClick
-          ExplicitLeft = 765
         end
       end
       object GroupBox3: TGroupBox
@@ -394,14 +384,13 @@ object frmMainBak: TfrmMainBak
         end
         object Button5: TButton
           Left = 754
-          Top = 50
+          Top = 53
           Width = 35
           Height = 25
           Anchors = [akTop, akRight]
           Caption = '...'
           TabOrder = 4
           OnClick = Button5Click
-          ExplicitLeft = 764
         end
         object Edt_Database: TEdit
           Left = 86
@@ -410,7 +399,6 @@ object frmMainBak: TfrmMainBak
           Height = 21
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 5
-          ExplicitWidth = 671
         end
       end
       object GroupBox4: TGroupBox
@@ -438,7 +426,6 @@ object frmMainBak: TfrmMainBak
           Height = 21
           Anchors = [akLeft, akTop, akRight]
           TabOrder = 0
-          ExplicitWidth = 671
         end
         object Button4: TButton
           Left = 757
@@ -449,14 +436,12 @@ object frmMainBak: TfrmMainBak
           Caption = '...'
           TabOrder = 1
           OnClick = Button4Click
-          ExplicitLeft = 767
         end
       end
     end
     object TabSheet2: TTabSheet
       Caption = 'Output'
       ImageIndex = 1
-      ExplicitHeight = 538
       object Memo1: TMemo
         Left = 0
         Top = 0
@@ -469,8 +454,8 @@ object frmMainBak: TfrmMainBak
         Font.Name = 'Tahoma'
         Font.Style = []
         ParentFont = False
+        ScrollBars = ssVertical
         TabOrder = 0
-        ExplicitHeight = 538
       end
     end
   end

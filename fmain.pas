@@ -74,6 +74,7 @@ type
     procedure EnableButtons(AEnabled: Boolean = true);
     procedure LogMsg(const AFilename, AMessage: string);
     procedure StartBackup;
+    procedure Log(const AMessage: string);
   public
     { Public declarations }
   end;
@@ -99,9 +100,17 @@ begin
     Abort;
   if Trim(Edt_Username.Text) = '' then
     Abort;
-  if Trim(Edt_Host.Text) = '' then
+  if Trim(Edt_BackupFile.Text) = '' then
     Abort;
 
+  if (Pos('.FBK', UpperCase(Trim(Edt_BackupFile.Text))) = 0) then
+  begin
+    Showmessage('Please check backup file');
+    Abort;
+  end;
+
+  Memo1.Lines.Clear;
+  
   if Chx_Verbose.Checked then
   begin
     if (Trim(Edt_OutPutFile.Text) = '') then
@@ -177,6 +186,11 @@ procedure TfrmMainBak.FormCreate(Sender: TObject);
 begin
   Self.Width := Screen.Width - 200;
   Self.Height := Screen.Height - 200;
+end;
+
+procedure TfrmMainBak.Log(const AMessage: string);
+begin
+  Memo1.Lines.Add(AMessage);
 end;
 
 procedure TfrmMainBak.LogMsg(const AFilename, AMessage: string);
@@ -257,15 +271,16 @@ begin
     FDIBBackup1.Backup;
 
     FCompleteTime := ((GetTickCount - start) / 1000) / SecsPerDay;
+    { if ((Chx_Verbose.Checked) and (Cmb_Verbose.ItemIndex = 0)) then
+      begin }
+    Log('');
     if ((Chx_Verbose.Checked) and (Cmb_Verbose.ItemIndex = 0)) then
-    begin
-      Memo1.Lines.Add('Creating log file ' + Edt_OutPutFile.Text);
-      Memo1.Lines.Add('Starting Backup.Current time: ' +
-        FormatDateTime('HH:MM:SS.', FStartTime));
-      Memo1.Lines.Add('Backup complete Current time:)' +
-        FormatDateTime('HH:MM:SS.', Now) + 'Elapsed time: ' +
-        FormatDateTime('HH:MM:SS', FCompleteTime));
-    end;
+      Log('Creating log file ' + Edt_OutPutFile.Text);
+    Log('Starting Backup.Current time: ' + FormatDateTime('HH:MM:SS.',
+      FStartTime));
+    Log('Backup complete Current time: ' + FormatDateTime('HH:MM:SS.', Now) +
+      'Elapsed time: ' + FormatDateTime('HH:MM:SS', FCompleteTime));
+    /// end;
     PageControl1.ActivePageIndex := 1;
 
     EnableButtons();
